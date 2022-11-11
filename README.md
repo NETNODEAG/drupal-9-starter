@@ -1,3 +1,3 @@
 ```
-composer create-project NETNODEAG/drupal-9-starter some-dir --no-interaction
+composer create-project -s dev NETNODEAG/drupal-9-starter . --no-interaction
 ```

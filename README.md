@@ -3,14 +3,14 @@ composer create-project -s dev NETNODEAG/drupal-9-starter drupal9site --no-inter
 cd drupal9site
 composer install --no-interaction
 ```
-# start testing with
+# Start testing/developing with
 ```
 php web/core/scripts/drupal install standard 
 cd web 
 php -S 127.0.0.1:8888
 ```
 
-# update drupal core with
+# Update drupal core with
 ```
 composer update drupal/core 'drupal/core-*' --with-all-dependencies 
 ```

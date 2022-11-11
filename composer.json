@@ -59,7 +59,10 @@
         "allow-plugins": {
             "drupal/*": true,
             "netnodeag/*": true,
-            "cweagans/composer-patches": true
+            "cweagans/composer-patches": true,
+            "composer/installers": true,
+            "oomphinc/composer-installers-extender": true,
+            "wikimedia/composer-merge-plugin": true
         }
     },
     "extra": {

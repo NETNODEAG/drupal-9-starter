@@ -23,6 +23,8 @@ vendor/drush/drush/drush en login_destination -y
 composer require drupal/gin_login
 vendor/drush/drush/drush en gin_login -y
 
+composer require 'drupal/r4032login:^2.2'
+vendor/drush/drush/drush en r4032login -y
 
 # SEO
 # ------------------------------------------------------
@@ -173,3 +175,4 @@ vendor/drush/drush/drush en views_ajax_history -y
 
 composer require 'drupal/webp:^1.0@beta'
 vendor/drush/drush/drush en webp -y
+

@@ -17,23 +17,12 @@ composer create-project -s dev NETNODEAG/drupal-9-starter drupal9site --no-inter
 
 # Login with user 1
 ```
-../vendor/drush/drush/drush uli
+../vendor/drush/drush/drush uli && php -S 127.0.0.1:8888
 ```
 
-You may want to flush after testing.
+You may want to flush the site after testing.
 ```
 sudo rm -rf drupal9site
-```
-
-# 
-You may use . If so, go like this:
-```
-mkdir mynewdrupal9site
-cd mynewdrupal9site
-composer create-project -s dev NETNODEAG/drupal-9-starter . --no-interaction --no-install
- init # select drupal10, set "web" as webroot
- start
- composer install --no-interaction
 ```
 
 # Update drupal core with

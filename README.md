@@ -12,7 +12,7 @@ php -S 127.0.0.1:8888
 
 # Everything in one shot
 ```
-composer create-project -s dev NETNODEAG/drupal-9-starter drupal9site --no-interaction --no-install && cd drupal9site && composer install --no-interaction && cd web && php core/scripts/drupal install standard && php -S 127.0.0.1:8888
+composer create-project -s dev NETNODEAG/drupal-9-starter drupal9site --no-interaction --no-install && cd drupal9site && composer install --no-interaction && cd web && php core/scripts/drupal install standard && cd .. && chmod +x 1_opinionated_modules.sh && chmod +x 2_opinionated_config.sh && cd web && ./1_opinionated_modules.sh && ./2_opinionated_config.sh && php -S 127.0.0.1:8888
 ```
 
 You may want to flush after testing.
@@ -20,15 +20,15 @@ You may want to flush after testing.
 sudo rm -rf drupal9site
 ```
 
-# Lando
-You may use lando. If so, go like this:
+# 
+You may use . If so, go like this:
 ```
 mkdir mynewdrupal9site
 cd mynewdrupal9site
 composer create-project -s dev NETNODEAG/drupal-9-starter . --no-interaction --no-install
-lando init # select drupal10, set "web" as webroot
-lando start
-lando composer install --no-interaction
+ init # select drupal10, set "web" as webroot
+ start
+ composer install --no-interaction
 ```
 
 # Update drupal core with

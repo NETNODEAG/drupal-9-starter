@@ -1,0 +1,15 @@
+prod:
+  host: prod.example.ch.netnode.cloud
+  root: /var/www/prod.example.ch.netnode.cloud/web
+  uri: 'prod.example.ch.netnode.cloud'
+  user: netnode
+  ssh:
+    options: '-p 22 -o StrictHostKeyChecking=no'
+
+stage:
+  host: stage.example.ch.netnode.cloud
+  root: /var/www/stage.example.ch.netnode.cloud/web
+  uri: 'stage.example.ch.netnode.cloud'
+  user: netnode
+  ssh:
+    options: '-p 22 -o StrictHostKeyChecking=no'

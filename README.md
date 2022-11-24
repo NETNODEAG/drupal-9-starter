@@ -9,7 +9,7 @@ composer nn-run-demo
 ./2_opinionated_config.sh
 
 # finally run demo
-php -S 127.0.0.1:8888
+cd web && php -S 127.0.0.1:8888
 ```
 
 # Login with user 1
@@ -20,6 +20,12 @@ php -S 127.0.0.1:8888
 You may want to flush the site after testing.
 ```
 sudo rm -rf drupal9site
+```
+
+# Create a new custom theme based on starterkit
+```
+cd web
+php core/scripts/drupal generate-theme custom
 ```
 
 # Update drupal core with

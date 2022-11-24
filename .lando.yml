@@ -1,0 +1,43 @@
+# Change this name to something that makes sense for your project
+name: godigital.netnode.ch
+
+# Use the recipe appropriate for your application.
+recipe: drupal9
+
+# Configure the D8 recipe to match up closer to a vanilla platform.sh stack
+config:
+
+  # Match PHP version on the production hosting.
+  php: '8.1'
+
+  # Optionally activate xdebug
+  #
+  # If you are having trouble getting xdebug to work please see:
+  # https://docs.devwithlando.io/services/php.html#using-xdebug
+  xdebug: false
+
+  # Set the webroot to match your .platform.app.yaml.
+  webroot: web
+
+  conf:
+    #    # Tell Lando to use additional PHP settings.
+    #    # The location of this file is arbitrary.
+    #    # We placed it inside .vscode/ folder simply because we find it convenient.
+    php: .lando.php.ini
+
+# Services
+# More info on https://docs.lando.dev/config/services.html
+services:
+  appserver:
+    overrides:
+      environment:
+        # Support debugging Drush with XDEBUG.
+        PHP_IDE_CONFIG: "serverName=example.ch.trip"
+
+  database:
+    # Static port in order to facilitate access with DB GUI tools such as MySQL Workbench or Sequel Pro
+    portforward: 9999
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database

@@ -13,6 +13,8 @@ vendor/drush/drush/drush en devel -y
 composer require drupal/config_ignore
 vendor/drush/drush/drush en config_ignore -y
 
+composer require drupal/symfony_mailer
+vendor/drush/drush/drush en symfony_mailer -y
 
 # Login and Logout
 # ------------------------------------------------------
@@ -62,7 +64,7 @@ composer require drupal/coffee
 vendor/drush/drush/drush en coffee -y
 
 composer require drupal/gin
-vendor/drush/drush/drush en gin -y
+vendor/drush/drush/drush theme:enable gin -y
 
 composer require drupal/gin_toolbar
 vendor/drush/drush/drush en gin_toolbar -y

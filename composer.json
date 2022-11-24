@@ -43,6 +43,8 @@
         "drupal/search_api": "^1.28",
         "drupal/shield": "^1.7",
         "drush/drush": "^11.3",
+        "drupal/dropzonejs": "^2.7",
+        "drupal/symfony_mailer": "^1.1@beta",
         "oomphinc/composer-installers-extender": "^2.0",
         "wikimedia/composer-merge-plugin": "^2.0"
     },
@@ -66,11 +68,24 @@
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
+    "scripts": {
+        "nn-run-demo": "./nn/nn_run_demo.sh",
+        "nn-run-maintenance": "./nn/nn_run_maintenance.sh",
+        "nn-run-install": "./nn/nn_run_install.sh",
+        "nn-run-frontend-build": "./nn/nn_run_frontend_build.sh"
+    },
     "extra": {
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
             }
+        },
+        ,
+        "merge-plugin": {
+            "include": [
+                "web/modules/contrib/dropzonejs/composer.libraries.json",
+                "web/modules/contrib/webform/composer.libraries.json"
+            ]
         },
         "installer-paths": {
             "web/core": ["type:drupal-core"],

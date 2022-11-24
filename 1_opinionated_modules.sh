@@ -1,3 +1,7 @@
+# Uninstall unneeded core modules
+vendor/drush/drush/drush pm:uninstall contact -y
+vendor/drush/drush/drush pm:uninstall comment -y
+
 # Modules for development
 # ------------------------------------------------------
 

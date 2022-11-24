@@ -5,4 +5,4 @@
 
 composer install --no-interaction
 cd web 
-php core/scripts/drupal install standard 
+php core/scripts/drupal install minimal 

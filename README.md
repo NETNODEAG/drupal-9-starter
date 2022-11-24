@@ -1,18 +1,15 @@
+Run demo with builtin webserver and sqlite
 ```
 composer create-project -s dev NETNODEAG/drupal-9-starter drupal9site --no-interaction --no-install
 cd drupal9site
-composer install --no-interaction
-```
-# For fast testing/developing use php builtin webserver and sqlite
-```
-cd web 
-php core/scripts/drupal install standard 
-php -S 127.0.0.1:8888
-```
+composer nn-run-demo
 
-# Everything in one shot
-```
-composer create-project -s dev NETNODEAG/drupal-9-starter drupal9site --no-interaction --no-install && cd drupal9site && composer install --no-interaction && cd web && php core/scripts/drupal install standard && cd .. && chmod +x 1_opinionated_modules.sh && chmod +x 2_opinionated_config.sh && ./1_opinionated_modules.sh && ./2_opinionated_config.sh && cd web  && php -S 127.0.0.1:8888
+# Optional
+./1_opinionated_modules.sh
+./2_opinionated_config.sh
+
+# finally run demo
+php -S 127.0.0.1:8888
 ```
 
 # Login with user 1

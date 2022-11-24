@@ -80,7 +80,6 @@
                 "web-root": "web/"
             }
         },
-        ,
         "merge-plugin": {
             "include": [
                 "web/modules/contrib/dropzonejs/composer.libraries.json",

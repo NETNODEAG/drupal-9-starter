@@ -74,8 +74,8 @@
         "nn-lando-sync-db-prod": "./nn/lando/nn_sync_db_prod.sh",
         "nn-lando-maintenance": "./nn/lando/nn_maintenance.sh",
         "nn-open": "./nn/lando/nn_open.sh",
-        "nn-demo-install": "./nn/demo/nn_run_demo_install.sh",
-        "nn-demo-serve": "./nn/demo/nn_run_demo_serve.sh"
+        "nn-demo-install": "./nn/demo/nn_demo_install.sh",
+        "nn-demo-serve": "./nn/demo/nn_demo_serve.sh"
     },
     "extra": {
         "drupal-scaffold": {

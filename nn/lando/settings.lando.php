@@ -10,6 +10,7 @@ if (file_exists(__DIR__ . '/settings.common.php')) {
   include __DIR__ . '/settings.common.php';
 }
 
+$settings['hash_salt'] = "Change_it";
 /**
  * Disable Drupal cache for development.
  */

@@ -42,6 +42,7 @@
         "drupal/reroute_email": "^2.1",
         "drupal/search_api": "^1.28",
         "drupal/shield": "^1.7",
+        "drupal/dotenv": "^1.0",
         "drush/drush": "^11.3",
         "drupal/dropzonejs": "^2.7",
         "drupal/symfony_mailer": "^1.1@beta",

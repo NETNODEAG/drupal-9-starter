@@ -31,8 +31,6 @@ vendor/drush/drush/drush cex -y
 
 composer create-project -s dev NETNODEAG/drupal-9-starter drupal9site --no-interaction --no-install
 cd drupal9site
-
-# start lando
 composer nn-lando-init
 
 # import config

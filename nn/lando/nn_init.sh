@@ -2,7 +2,7 @@
 
 # php and composer
 php ./nn/lando/check_requirements.php
-composer selfupdate --2
+composer self-update --2
 
 # create .env file
 cp .env.example .env

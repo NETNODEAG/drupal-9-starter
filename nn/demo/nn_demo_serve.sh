@@ -4,3 +4,5 @@
 cd web
 drush uli
 php -S 127.0.0.1:8888
+
+open http://127.0.0.1:8888

@@ -29,8 +29,11 @@ php core/scripts/drupal generate-theme custom
 # if you already created configs in demo mode, save it
 vendor/drush/drush/drush cex -y
 
+composer create-project -s dev NETNODEAG/drupal-9-starter drupal9site --no-interaction --no-install
+cd drupal9site
+
 # start lando
-lando start
+composer nn-lando-init
 
 # import config
 lando drush cim

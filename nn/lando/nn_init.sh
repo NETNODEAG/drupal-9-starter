@@ -7,6 +7,9 @@ composer selfupdate --2
 # create .env file
 cp .env.example .env
 
+# run composer
+composer install
+
 # setup drupal secific files
 rm web/sites/default/settings.php
 ln ./nn/lando/settings.lando.php web/sites/default/settings.php
@@ -16,9 +19,6 @@ ln ./nn/lando/development.services.yml web/sites/development.services.yml
 
 rm web/.htaccess
 ln ./nn/lando/.htaccess web/.htaccess
-
-# run composer
-composer install
 
 # lando + db sync
 # lando destroy -y

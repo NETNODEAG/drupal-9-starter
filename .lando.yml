@@ -4,7 +4,7 @@ name: example.ch
 # Use the recipe appropriate for your application.
 recipe: drupal9
 
-# Configure the D8 recipe to match up closer to a vanilla platform.sh stack
+# Configure the D9 recipe
 config:
 
   # Match PHP version on the production hosting.
@@ -20,9 +20,7 @@ config:
   webroot: web
 
   conf:
-    #    # Tell Lando to use additional PHP settings.
-    #    # The location of this file is arbitrary.
-    #    # We placed it inside .vscode/ folder simply because we find it convenient.
+    # Tell Lando to use additional PHP settings.
     php: .lando.php.ini
 
 # Services
@@ -36,7 +34,8 @@ services:
 
   database:
     # Static port in order to facilitate access with DB GUI tools such as MySQL Workbench or Sequel Pro
-    # portforward: 9999
+    portforward: 9999
+
   pma:
     type: phpmyadmin
     hosts:

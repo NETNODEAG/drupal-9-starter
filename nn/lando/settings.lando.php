@@ -3,12 +3,15 @@ use Symfony\Component\Dotenv\Dotenv;
 (new Dotenv())->usePutenv()->bootEnv(DRUPAL_ROOT . '/../.env', 'dev', ['test'], true);
 
 
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+
 /**
  * Include the common settings.
  */
 if (file_exists(__DIR__ . '/settings.common.php')) {
   include __DIR__ . '/settings.common.php';
 }
+
 
 $settings['hash_salt'] = "Change_it";
 /**

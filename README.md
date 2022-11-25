@@ -1,4 +1,4 @@
-Run demo with builtin webserver and sqlite
+# Run demo with builtin webserver and sqlite
 ```
 composer create-project -s dev NETNODEAG/drupal-9-starter drupal9site --no-interaction --no-install
 cd drupal9site
@@ -32,6 +32,8 @@ vendor/drush/drush/drush cex -y
 composer create-project -s dev NETNODEAG/drupal-9-starter drupal9site --no-interaction --no-install
 cd drupal9site
 composer nn-lando-init
+drush si standard -y --account-name=admin --account-pass=test --account-mail=tech@netnode.ch 
+
 
 # import config
 lando drush cim

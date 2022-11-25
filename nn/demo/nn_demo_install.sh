@@ -4,7 +4,7 @@
 
 
 composer install --no-interaction
-cp nn/settings.demo.php web/sites/default/settings.php
+cp nn/demo/settings.demo.php web/sites/default/settings.php
 cd web 
 #php core/scripts/drupal install minimal 
 ../vendor/drush/drush/drush sql-drop -y

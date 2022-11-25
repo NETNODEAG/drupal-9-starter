@@ -9,3 +9,4 @@ cd web
 #php core/scripts/drupal install minimal 
 ../vendor/drush/drush/drush sql-drop -y
 ../vendor/drush/drush/drush si standard -y --db-url=sqlite://sites/example.com/files/.ht.sqlite --account-name=admin --account-mail=demo@netnode.ch --account-pass=test
+../vendor/drush/drush/drush cim

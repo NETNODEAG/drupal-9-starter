@@ -61,6 +61,9 @@ vendor/drush/drush/drush en permissions_filter -y
 composer require drupal/views_bulk_operations
 vendor/drush/drush/drush en views_bulk_operations -y
 
+composer require 'drupal/paragraphs_edit'
+vendor/drush/drush/drush en paragraphs_edit -y
+
 composer require drupal/geysir
 vendor/drush/drush/drush en geysir -y
 

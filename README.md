@@ -8,6 +8,9 @@ composer nn-run-demo-serve
 end=`date +%s`
 runtime=$((end-start))
 
+# Apply more or less undisputed config at NETNODE
+./0_s.sh
+
 # Optional
 ./1_opinionated_modules.sh
 ./2_opinionated_config.sh

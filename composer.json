@@ -69,11 +69,13 @@
         }
     },
     "scripts": {
-        "nn-run-demo-install": "./nn/nn_run_demo_install.sh",
-        "nn-run-demo-serve": "./nn/nn_run_demo_serve.sh",
-        "nn-run-maintenance": "./nn/nn_run_maintenance.sh",
-        "nn-run-install": "./nn/nn_run_install.sh",
-        "nn-run-frontend-build": "./nn/nn_run_frontend_build.sh"
+        "nn-lando-init": "./nn/lando/nn_init.sh",
+        "nn-lando-build-frontend": "./nn/lando/nn_build_frontend.sh",
+        "nn-lando-sync-db-prod": "./nn/lando/nn_sync_db_prod.sh",
+        "nn-lando-maintenance": "./nn/lando/nn_maintenance.sh",
+        "nn-open": "./nn/lando/nn_open.sh",
+        "nn-demo-install": "./nn/demo/nn_run_demo_install.sh",
+        "nn-demo-serve": "./nn/demo/nn_run_demo_serve.sh"
     },
     "extra": {
         "drupal-scaffold": {

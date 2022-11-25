@@ -6,24 +6,15 @@ composer nn-demo-install
 ./0_netnode_start_config.sh
 composer nn-demo-serve
 
-
-# Optional
+# Optional modules and config
 ./1_opinionated_modules.sh
 ./2_opinionated_config.sh
 
 # finally run demo
 cd web
-composer nn-run-demo-serve # (php -S 127.0.0.1:8888)
-```
+composer nn-demo-serve
 
-# Login with user 1
-```
-cd web
-../vendor/drush/drush/drush uli && php -S 127.0.0.1:8888
-```
-
-You may want to flush the site after testing.
-```
+# You may want to flush the site after testing.
 sudo rm -rf drupal9site
 ```
 
@@ -33,10 +24,14 @@ cd web
 php core/scripts/drupal generate-theme custom
 ```
 
-# Update drupal core with
+# Start with lando
 ```
-composer update drupal/core 'drupal/core-*' --with-all-dependencies 
-```
+# if you already created configs in demo mode, save it
+vendor/drush/drush/drush cex -y
 
-# More cool stuff
-https://colorfield.be/blog/minimal-drupal-9-local-development-environment - hi christoph *wave* ;-)
+# start lando
+lando start
+
+# import config
+lando drush cim
+```

@@ -23,9 +23,9 @@ composer install
 # lando + db sync
 # lando destroy -y
 lando start
-. ./nn/lando/nn_sync_db_prod.sh
-. ./nn/lando/nn_build_frontend.sh
+#. ./nn/lando/nn_sync_db_prod.sh
+#. ./nn/lando/nn_build_frontend.sh
 
 # finish
 lando drush cr
-open http://godigital.netnode.ch.lndo.site/
+open http://example.ch.lndo.site/

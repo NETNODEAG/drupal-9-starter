@@ -36,7 +36,7 @@ services:
 
   database:
     # Static port in order to facilitate access with DB GUI tools such as MySQL Workbench or Sequel Pro
-    portforward: 9999
+    # portforward: 9999
   pma:
     type: phpmyadmin
     hosts:

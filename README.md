@@ -31,3 +31,8 @@ cd drupal9site
 composer nn-lando-init
 lando drush si standard -y --account-name=admin --account-pass=test --account-mail=tech@netnode.ch 
 ```
+
+This only works it you have the following setup on your local machinge:
+- Installed lando (brew install --cask lando)
+- Installed global composer (brew install composer)
+- Installed php 8.1 on you local machine (brew install php@8.1)

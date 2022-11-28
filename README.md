@@ -34,6 +34,6 @@ lando drush si standard -y --account-name=admin --account-pass=test --account-ma
 
 This only works it you have the following setup on your local machinge:
 - You need "brew" on your machine (Install instruction https://brew.sh/)
-- Installed lando (brew install --cask lando)
+- Installed lando (brew install --cask lando) Info:
 - Installed global composer (brew install composer)
 - Installed php 8.1 on you local machine (brew install php@8.1)

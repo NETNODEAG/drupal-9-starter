@@ -1,6 +1,6 @@
 {
     "name": "netnodeag/nn-drupal-starter",
-    "description": "Project template for Drupal 9, 10 projects",
+    "description": "Project template for Drupal 10.0.x projects",
     "type": "project",
     "license": "GPL-2.0-or-later",
     "homepage": "https://www.drupal.org/project/drupal",

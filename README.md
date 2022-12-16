@@ -1,7 +1,7 @@
 # Run demo with builtin webserver and sqlite
 ```
-composer create-project -s dev NETNODEAG/nn-drupal-starter nn-drupal-starter --no-interaction --no-install
-cd nn-drupal-starter
+composer create-project -s dev NETNODEAG/nn-drupal-starter nn-demo --no-interaction --no-install
+cd nn-demo
 composer nn-demo-install
 ./0_netnode_start_config.sh
 composer nn-demo-serve
@@ -15,7 +15,7 @@ cd web
 composer nn-demo-serve
 
 # You may want to flush the site after testing.
-sudo rm -rf nn-drupal-starter
+sudo rm -rf nn-demo
 ```
 
 # Create a new custom theme based on starterkit
@@ -26,8 +26,8 @@ php core/scripts/drupal generate-theme custom
 
 # Start with lando
 ```
-composer create-project -s dev NETNODEAG/nn-drupal-starter nn-drupal-starter --no-interaction --no-install
-cd nn-drupal-starter
+composer create-project -s dev NETNODEAG/nn-drupal-starter newsite.ch --no-interaction --no-install
+cd newsite.ch
 composer nn-lando-init
 lando drush si standard -y --account-name=admin --account-pass=test --account-mail=tech@netnode.ch 
 ```

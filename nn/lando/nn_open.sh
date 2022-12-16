@@ -1,1 +1,1 @@
-open http://godigital.netnode.ch.lndo.site
+open http://nn-drupal-starter.ch.lndo.site

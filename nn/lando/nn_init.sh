@@ -28,4 +28,4 @@ lando start
 
 # finish
 lando drush cr
-open http://example.ch.lndo.site/
+open http://nn-drupal-starter.ch.lndo.site/

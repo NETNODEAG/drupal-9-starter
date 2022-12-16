@@ -5,7 +5,7 @@ lando drush cr
 
 # enable stage file proxy
 lando drush en stage_file_proxy
-lando drush config-set stage_file_proxy.settings origin "https://www.netnode.ch" -y
+lando drush config-set stage_file_proxy.settings origin "https://www.nn-drupal-starter.ch" -y
 
 # finish
 lando drush cr

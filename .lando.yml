@@ -1,5 +1,5 @@
 # Change this name to something that makes sense for your project
-name: example.ch
+name: nn-drupal-starter.ch
 
 # Use the recipe appropriate for your application.
 recipe: drupal9
@@ -34,7 +34,7 @@ services:
 
   database:
     # Static port in order to facilitate access with DB GUI tools such as MySQL Workbench or Sequel Pro
-    portforward: 9999
+    # portforward: 9999
 
   pma:
     type: phpmyadmin

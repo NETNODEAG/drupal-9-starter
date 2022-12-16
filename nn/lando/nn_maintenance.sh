@@ -5,4 +5,4 @@ composer update --with-dependencies
 lando drush updb -y
 lando drush cr
 lando info
-open http://godigital.netnode.ch.lndo.site/
+open http://nn-drupal-starter.ch.lndo.site/

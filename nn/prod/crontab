@@ -1,0 +1,9 @@
+# Info:
+# Do not manually update this file. It will be overwritten in every deploy. If you want to change
+# change something, edit /nn/*/crontab and push code to run the pipeline.
+
+# Run Drupal Cron and log it to syslog
+*/1 * * * * cd /var/www/PATHTOYOURSITE/web && drush cron --verbose 2>&1 | logger -t CRON
+
+# Run SQL dump and save it to /home/YOURUSER/drush-backups
+0 0 * * * /usr/local/bin/drush --root=/var/www/PATHTOYOURSITE sql:dump --skip-tables-list=cache,cache_*,watchdog --result-file=auto --gzip --verbose 2>&1 | logger -t CRON

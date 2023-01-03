@@ -56,8 +56,10 @@ echo "Build Drupal theme –> DONE" | toilet -f term -F border --meta
 #find ./docroot/sites/default -name "*settings.php" -exec chmod 644 {} \;
 #find ./docroot/sites/default -name "*services.yml" -exec chmod 644 {} \;
 
-echo "RUN: install crontab" | toilet -f term -F border --meta
+# Install cron jobs
+echo "RUN: Install crontab" | toilet -f term -F border --meta
 crontab nn/prod/crontab
+echo "Install crontab –> DONE" | toilet -f term -F border --meta
 
 echo "DEPLOYMENT FINISHED" | toilet --meta --filter border -t
 

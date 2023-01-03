@@ -1,0 +1,26 @@
+image: atlassian/default-image:2
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: 'Deploy to Production'
+          deployment: prod
+          script:
+            - pipe: atlassian/ssh-run:0.4.0
+              variables:
+                SSH_USER: 'netnode'
+                SERVER: 'prod.example.com'
+                PORT: '22'
+                COMMAND: "cd /var/www/WEBSITEFOLDER && ./nn/prod/deploy.sh"
+    #develop:
+    #  - step:
+    #      name: 'Deploy to Stage'
+    #      deployment: stage
+    #      script:
+    #          variables:
+    #        - pipe: atlassian/ssh-run:0.4.0
+    #            SSH_USER: 'netnode'
+    #            SERVER: 'stage.example.com'
+    #            PORT: '22'
+    #            COMMAND: "cd /var/www/WEBSITEFOLDER && ./nn/prod/deploy.sh"

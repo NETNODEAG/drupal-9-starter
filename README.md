@@ -37,3 +37,8 @@ This only works it you have the following setup on your local machinge:
 - Installed lando (brew install --cask lando) Info:
 - Installed global composer (brew install composer)
 - Installed php 8.1 on you local machine (brew install php@8.1)
+
+# Configure Cron Jobs
+You can edit /nn/prod/crontab and add/edit cronjobs. The cronjobs will be configured every deployment 
+
+# 

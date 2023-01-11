@@ -10,9 +10,9 @@ pipelines:
             - pipe: atlassian/ssh-run:0.4.0
               variables:
                 SSH_USER: 'netnode'
-                SERVER: 'srv.prod.hub.kunstmuseumbern.ch.netnode.cloud'
+                SERVER: 'prod.example.com'
                 PORT: '22'
-                COMMAND: "cd /var/www/prod.hub.kunstmuseumbern.ch.netnode.cloud && ./nn/prod/deploy.sh"
+                COMMAND: "cd /var/www/WEBSITEFOLDER && ./nn/prod/deploy.sh"
     #develop:
     #  - step:
     #      name: 'Deploy to Stage'

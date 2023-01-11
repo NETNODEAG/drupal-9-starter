@@ -11,16 +11,16 @@ echo "Backup Database -> DONE" | toilet -f term -F border --meta
 
 # run git pull
 echo "RUN: git pull" | toilet -f term -F border --meta
-#rm ./docroot/themes/custom/godigital/yarn.lock || true
+#rm ./web/themes/custom/godigital/yarn.lock || true
 git pull -v
 echo "RUNNING git pull -> DONE" | toilet -f term -F border --meta
 
 # copy files
 echo "RUN: Backup Database" | toilet -f term -F border --meta
-rm ./docroot/sites/default/settings.php || true
-ln ./nn/prod/settings.prod.php ./docroot/sites/default/settings.php
-rm ./docroot/.htaccess || true
-ln nn/prod/.htaccess_prod ./docroot/.htaccess
+rm ./web/sites/default/settings.php || true
+ln ./nn/prod/settings.prod.php ./web/sites/default/settings.php
+rm ./web/.htaccess || true
+ln nn/prod/.htaccess_prod ./web/.htaccess
 
 # run composer
 echo "RUN: composer install" |toilet -f term -F border --meta
@@ -39,7 +39,7 @@ echo "RUNNING drush updb|cim –> DONE" | toilet -f term -F border --meta
 
 # Build theme
 echo "RUN: Build Drupal theme" | toilet -f term -F border --meta
-cd ./docroot/themes/custom/godigital && npm install && npm run build
+cd ./web/themes/custom/godigital && npm install && npm run build
 echo "Build Drupal theme –> DONE" | toilet -f term -F border --meta
 
 # File permissions

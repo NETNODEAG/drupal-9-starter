@@ -5,18 +5,18 @@ pipelines:
     master:
       - step:
           name: 'Deploy to Production'
-          deployment: prod
+          deployment: Production
           script:
             - pipe: atlassian/ssh-run:0.4.0
               variables:
                 SSH_USER: 'netnode'
-                SERVER: 'prod.example.com'
+                SERVER: 'srv.prod.hub.kunstmuseumbern.ch.netnode.cloud'
                 PORT: '22'
-                COMMAND: "cd /var/www/WEBSITEFOLDER && ./nn/prod/deploy.sh"
+                COMMAND: "cd /var/www/prod.hub.kunstmuseumbern.ch.netnode.cloud && ./nn/prod/deploy.sh"
     #develop:
     #  - step:
     #      name: 'Deploy to Stage'
-    #      deployment: stage
+    #      deployment: Staging
     #      script:
     #          variables:
     #        - pipe: atlassian/ssh-run:0.4.0

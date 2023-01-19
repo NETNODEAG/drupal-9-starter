@@ -25,6 +25,9 @@ $databases['default']['default'] = array (
   'port' => $_ENV['DB_PORT'],
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
+  'init_commands' => [
+    'isolation_level' => 'SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED',
+  ],
 );
 
 // Salt

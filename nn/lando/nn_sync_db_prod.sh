@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-lando drush sql:sync @cloud.prod @self --structure-tables-list=cache,cache_*,search_index,watchdog -y
+lando drush sql:sync @cloud.prod @self --structure-tables-list="cache,cache_*,search_index,watchdog" -y
 lando drush cr
 
 # enable stage file proxy

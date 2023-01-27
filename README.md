@@ -1,7 +1,7 @@
 
 # Start with lando
 ```
-git clone git@bitbucket.org:NETNODEAG/hub.kunstmuseumbern.ch.git
+git clone git@bitbucket.org:NETNODEAG/example.ch.git
 composer nn-lando-init
 
 # you may want to use the following commands any time during development

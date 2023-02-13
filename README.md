@@ -32,7 +32,7 @@ composer nn-lando-init
 lando drush si standard -y --account-name=admin --account-pass=test --account-mail=tech@netnode.ch 
 ```
 
-# Start with docker compose
+# Init a brand new site with docker compose
 ```
 composer create-project -s dev NETNODEAG/nn-drupal-starter example.ch --no-interaction --no-install
 # or if project already exists
@@ -40,8 +40,14 @@ git clone git@bitbucket.org:NETNODEAG/example.ch.git
 
 cd example.ch
 
+./nn/docker/init.sh
+
+# you may want to adapt .env-example and .env to your specifications
 cp .env-example .env 
 
+## Use while coding:
+
+## Use for local or feature branch deployments
 ./nn/docker/deploy.sh
 
 # if its a complete fresh install you may want to

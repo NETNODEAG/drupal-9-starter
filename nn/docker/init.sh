@@ -22,7 +22,7 @@ rm ./web/sites/default/settings.php || true
 ln ./nn/docker/settings.docker.php ./web/sites/default/settings.php
 ln -f ./nn/docker/.htaccess ./web/.htaccess
 
+docker compose exec drupal sh -c 'drush si -y'
+
 docker compose exec drupal sh -c 'drush cr'
 echo "DEPLOYMENT FINISHED" | toilet --meta --filter border -t
-
-

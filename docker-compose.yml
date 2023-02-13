@@ -11,7 +11,7 @@ services:
       - MYSQL_DATABASE=${DB_DATABASE}
     restart: always
     volumes:
-      - ${PWD}/volumes/mariadb:/var/lib/mysql:rw,delegated
+      - ./volumes/mariadb:/var/lib/mysql:rw,delegated
 
   drupal:
     build: .
@@ -63,7 +63,6 @@ services:
     command:
       - solr-precreate
       - core_netnode
-      - bash -c "bin/solr zk cp file:/var/solr/data/security.json zk:/security.json && exec solr-foreground"
     labels:
       # Frontend
       - "traefik.enable=true"

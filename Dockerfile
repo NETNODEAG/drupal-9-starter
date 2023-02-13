@@ -1,4 +1,4 @@
-FROM drupal:9
+FROM drupal:10
 
 RUN apt update
 RUN apt install unzip git vim ssh rsync mariadb-client openssh-client -y

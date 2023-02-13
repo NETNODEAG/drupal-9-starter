@@ -39,7 +39,15 @@ composer create-project -s dev NETNODEAG/nn-drupal-starter example.ch --no-inter
 git clone git@bitbucket.org:NETNODEAG/example.ch.git
 
 cd example.ch
+
+cp .env-example .env 
+
 ./nn/docker/deploy.sh
+
+# if its a complete fresh install you may want to
+composer nn-docker-bash # access the drupal containtern, then
+composer install
+drush si --account-mail=tech@netnode.ch --account-name=admin --account-pass=test --site-name=example.ch -y
 
 # you may want to use the following commands any time during development
 

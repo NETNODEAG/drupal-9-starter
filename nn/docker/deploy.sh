@@ -4,7 +4,14 @@ set -e
 
 echo $PATH
 
+mkdir -p volumes
+mkdir -p volumes/mariadb
+mkdir -p volumes/solr
+
 docker compose up -d --build
+
+
+
 
 echo "DEPLOYMENT START" | toilet --meta --filter border -t
 

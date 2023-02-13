@@ -35,11 +35,7 @@ lando drush si standard -y --account-name=admin --account-pass=test --account-ma
 # Init a brand new site with docker compose
 ```
 composer create-project -s dev NETNODEAG/nn-drupal-starter example.ch --no-interaction --no-install
-# or if project already exists
-git clone git@bitbucket.org:NETNODEAG/example.ch.git
-
 cd example.ch
-
 ./nn/docker/init.sh
 
 # you may want to adapt .env-example and .env to your specifications
@@ -50,17 +46,17 @@ cp .env-example .env
 ## Use for local or feature branch deployments
 ./nn/docker/deploy.sh
 
-# if its a complete fresh install you may want to
+# other useful commands
 composer nn-docker-bash # access the drupal containtern, then
 composer install
 drush si --account-mail=tech@netnode.ch --account-name=admin --account-pass=test --site-name=example.ch -y
 
-# you may want to use the following commands any time during development
+## you may want to use the following commands any time during development
 
-# sync db with prod
+## sync db with prod
 composer nn-lando-sync-db-prod
 
-# open the lando dev site
+## open the lando dev site
 composer nn-open
 
 # Access drupal docker container
@@ -98,5 +94,3 @@ This only works it you have the following setup on your local machinge:
 
 # Configure Cron Jobs
 You can edit /nn/prod/crontab and add/edit cronjobs. The cronjobs will be configured every deployment 
-
-# 

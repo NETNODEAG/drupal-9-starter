@@ -17,6 +17,7 @@ git checkout $BITBUCKET_BRANCH
 cat << EOF > .env
 APP_ENV=docker
 APP_NAME=$FOLDER
+HOSTNAME=$FOLDER.docker.netnode.cloud
 # Database credentials
 DB_DATABASE=drupal
 DB_USERNAME=drupal

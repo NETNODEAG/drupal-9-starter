@@ -6,7 +6,7 @@ set -e
 
 echo $PATH
 
-cp .env-example .env
+cp .env.example .env
 
 mkdir -p volumes
 mkdir -p volumes/mariadb

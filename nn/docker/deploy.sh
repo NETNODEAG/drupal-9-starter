@@ -4,6 +4,8 @@ set -e
 
 echo $PATH
 
+docker compose up -d --build
+
 echo "DEPLOYMENT START" | toilet --meta --filter border -t
 
 #rm -f ./docroot/sites/default/default.services.yml
@@ -23,12 +25,12 @@ echo "DEPLOYMENT START" | toilet --meta --filter border -t
 
 # copy files
 #echo "RUN: Backup Database" | toilet -f term -F border --meta
-rm ./docroot/sites/default/settings.php || true
-ln ./nn/docker/settings.docker.php ./docroot/sites/default/settings.php
+rm ./web/sites/default/settings.php || true
+ln ./nn/docker/settings.docker.php ./web/sites/default/settings.php
 
-ln -f ./nn/docker/.htaccess ./docroot/.htaccess
+ln -f ./nn/docker/.htaccess ./web/.htaccess
 
-docker compose up -d --build
+
 
 
 # run composer

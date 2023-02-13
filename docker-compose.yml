@@ -3,7 +3,7 @@ version: '3'
 services:
   mysql:
     image: mariadb:latest
-    container_name: database
+    container_name: ${APP_NAME}-database
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_PASSWORD=${DB_PASSWORD}
@@ -15,7 +15,7 @@ services:
 
   drupal:
     build: .
-    container_name: drupal
+    container_name: ${APP_NAME}-drupal
     #ports:
     #  - 8083:80
     volumes:
@@ -48,13 +48,14 @@ services:
     expose:
       - "6379"
     restart: unless-stopped
-    container_name: redis
+    container_name: ${APP_NAME}-redis
     networks:
       - default
       - proxy
   
   solr:
     image: solr
+    container_name: ${APP_NAME}-solr
     #ports:
     # - "8983:8983"
     volumes:

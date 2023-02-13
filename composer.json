@@ -59,7 +59,9 @@
         "nn-open-bitbucket": "open https://bitbucket.org/NETNODEAG/example.ch",
         "nn-ssh-prod": "ssh netnode@prod.example.ch.netnode.cloud",
         "nn-demo-install": "./nn/demo/nn_demo_install.sh",
-        "nn-demo-serve": "./nn/demo/nn_demo_serve.sh"
+        "nn-demo-serve": "./nn/demo/nn_demo_serve.sh",
+        "nn-docker-sync-db-prod": "docker compose exec drupal sh -c 'drush sql:sync @cloud.prod @self'",
+        "nn-docker-bash": "docker compose exec -it drupal bash"
     },
     "extra": {
         "drupal-scaffold": {

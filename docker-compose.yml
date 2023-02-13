@@ -1,0 +1,84 @@
+version: '3'
+
+services:
+  mysql:
+    image: mariadb:latest
+    container_name: database
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_DATABASE=${DB_DATABASE}
+    restart: always
+    volumes:
+      - ${PWD}/volumes/mariadb:/var/lib/mysql:rw,delegated
+
+  drupal:
+    build: .
+    container_name: drupal
+    #ports:
+    #  - 8083:80
+    volumes:
+      # copy local keys to docker image so docker container can access remote servers
+      - ~/.ssh:/root/.ssh:ro
+      - ./:/var/www
+      - ./nn/docker/000-default.conf:/etc/apache2/sites-available/000-default.conf:ro
+      - ./nn/docker/php.ini:/usr/local/etc/php/php.ini
+    restart: always
+    labels:
+      # Frontend
+      - "traefik.enable=true"
+      - "traefik.http.routers.${APP_NAME}-drupal.rule=Host(`${HOSTNAME}`)"
+      #- "traefik.http.routers.${APP_NAME}-drupal.entryPoints=websecure"
+      - "traefik.http.services.${APP_NAME}-drupal.loadbalancer.server.port=80"
+      - "traefik.http.routers.${APP_NAME}-drupal.tls=true"
+      - "traefik.http.routers.${APP_NAME}-drupal.tls.certresolver=leresolver"
+      - "traefik.http.routers.${APP_NAME}-drupal.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=netnode:$$apr1$$auekidRk$$VwltF9XdS4OPufteMwuCV1" # netnode/T3stdom@in
+    env_file:
+      - .env
+    links:
+      - mysql
+    networks:
+      - default
+      - proxy
+
+  redis:
+    image: redis:alpine
+    expose:
+      - "6379"
+    restart: unless-stopped
+    container_name: redis
+    networks:
+      - default
+      - proxy
+  
+  solr:
+    image: solr
+    #ports:
+    # - "8983:8983"
+    volumes:
+      - ${PWD}/volumes/solr:/var/solr
+    command:
+      - solr-precreate
+      - core_netnode
+      - bash -c "bin/solr zk cp file:/var/solr/data/security.json zk:/security.json && exec solr-foreground"
+    labels:
+      # Frontend
+      - "traefik.enable=true"
+      - "traefik.http.routers.${APP_NAME}-solr.rule=Host(`solr.${HOSTNAME}`)"
+      #- "traefik.http.routers.${APP_NAME}-solr.entryPoints=websecure"
+      - "traefik.http.services.${APP_NAME}-solr.loadbalancer.server.port=8983"
+      - "traefik.http.routers.${APP_NAME}-solr.tls=true"
+      - "traefik.http.routers.${APP_NAME}-solr.tls.certresolver=leresolver"
+      - "traefik.http.routers.${APP_NAME}-solr.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=netnode:$$apr1$$auekidRk$$VwltF9XdS4OPufteMwuCV1" # netnode/T3stdom@in
+    networks:
+      - default
+      - proxy
+
+networks:
+  proxy:
+    external: true
+    name: proxy
+

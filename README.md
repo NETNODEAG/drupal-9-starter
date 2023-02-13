@@ -32,6 +32,26 @@ composer nn-lando-init
 lando drush si standard -y --account-name=admin --account-pass=test --account-mail=tech@netnode.ch 
 ```
 
+# Start with docker compose
+```
+composer create-project -s dev NETNODEAG/nn-drupal-starter example.ch --no-interaction --no-install
+# or if project already exists
+git clone git@bitbucket.org:NETNODEAG/example.ch.git
+
+cd example.ch
+./nn/docker/deploy.sh
+
+# you may want to use the following commands any time during development
+
+# sync db with prod
+composer nn-lando-sync-db-prod
+
+# open the lando dev site
+composer nn-open
+
+# Access drupal docker container
+nn-docker-bash
+```
 
 # Start with lando
 ```

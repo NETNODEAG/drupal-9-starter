@@ -1,5 +1,5 @@
-composer require drupal/dotenv
-vendor/drush/drush/drush en dotenv -y
+#composer require drupal/dotenv
+#vendor/drush/drush/drush en dotenv -y
 
 composer require drupal/gin
 

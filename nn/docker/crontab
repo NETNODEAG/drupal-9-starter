@@ -2,7 +2,7 @@
 # change something, edit /nn/*/crontab and run a deploy
 
 # Run Drupal Cron and log it to syslog
-*/1 * * * * cd /var/www/docroot && drush cron --verbose 2>&1 | logger -t CRON
+*/1 * * * * cd /var/www/web && drush cron --verbose 2>&1 | logger -t CRON
 
 # Run SQL dump and save it to /volumes/dbbackups
-0 0 * * * cd /var/www/docroot && drush sql:dump --skip-tables-list=cache,cache_*,watchdog --result-file=../volumes/dbbackups/db-`date +%Y.%m.%d-%H:%M:%S`.sql --gzip --verbose 2>&1 | logger -t CRON
+0 0 * * * cd /var/www/web && drush sql:dump --skip-tables-list=cache,cache_*,watchdog --result-file=../volumes/dbbackups/db-`date +%Y.%m.%d-%H:%M:%S`.sql --gzip --verbose 2>&1 | logger -t CRON

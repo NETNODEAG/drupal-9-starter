@@ -6,7 +6,7 @@ set -e
 
 echo $PATH
 
-cp .env.example .env
+cp -n .env.example .env
 
 mkdir -p volumes
 mkdir -p volumes/mariadb
@@ -18,12 +18,11 @@ docker compose up -d --build
 # run composer
 docker compose exec drupal sh -c 'composer install --no-dev --no-interaction'
 
-rm ./web/sites/default/settings.php || true
+rm -f ./web/sites/default/settings.php
 ln ./nn/docker/settings.docker.php ./web/sites/default/settings.php
 ln -f ./nn/docker/.htaccess ./web/.htaccess
 
-docker compose exec drupal sh -c 'drush si -y'
-
-docker compose exec drupal sh -c 'drush cr'
+#docker compose exec drupal sh -c 'drush si -y'
+#docker compose exec drupal sh -c 'drush cr'
 echo "Open your traefik on http://localhost:8080/dashboard/#/http/routers and look for your new site"
 echo "DEPLOYMENT FINISHED" | toilet --meta --filter border -t

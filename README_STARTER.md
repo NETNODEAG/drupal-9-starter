@@ -24,11 +24,37 @@ cd web
 php core/scripts/drupal generate-theme custom
 ```
 
-# Start with lando
+# Start a new docker based drupal project
+## 1. Create git repo
+- Create repo https://bitbucket.org/NETNODEAG/workspace/create/repository
+- On your local codebase run:
+- > git init
+- > git remote add origin git@bitbucket.org:NETNODEAG/change-to-your-git-repo.git
+- > git add .
+- > git commit -am "inital commit"
+- > git push -u origin master
+- edit ./nn/docker-prod/settings.docker.php (set allowed trusted host "'^.+\.docker2\.netnode\.cloud$'")
+## Setup prod environment on docker host
+- Make sure git repo can be accessed from docker host (Example: https://bitbucket.org/NETNODEAG/example.ch.netnode.cloud/admin/access-keys/)
+- Login to the project docker host 
+- git clone git@bitbucket.org:NETNODEAG/change-to-your-git-repo.git
+- Inside repo folder
+- > cp .env.example .env
+- > vi .env # edit whatever you want
+- > task nn-docker-prod-deploy (it stops at drush cim which is ok, site is not yet installed, see next step)
+- Site should now be accessible with your define hostname in .env
+- Install site (you may need to set permissions correctly chmod -R 777 web/sites/default/files and chmod -R 777 web/sites/default/settings.php)
+- Check HOSTNAME/admin/reports/status
+- > chmod -R 644 web/sites/default/settings.php
+## Local codebase
+- Define correct prod host drush/sites/cloud.site.yml
+- 
+
+# Start coding with lando
 ```
 composer create-project -s dev NETNODEAG/nn-drupal-starter newsite.ch --no-interaction --no-install
 cd newsite.ch
-composer nn-lando-init
+task nn-lando-start
 lando drush si standard -y --account-name=admin --account-pass=test --account-mail=tech@netnode.ch 
 ```
 
@@ -88,7 +114,8 @@ composer nn-ssh-prod
 
 This only works it you have the following setup on your local machinge:
 - You need "brew" on your machine (Install instruction https://brew.sh/)
-- Installed lando (brew install --cask lando) Info:
+- Installed task (brew install go-task)
+- Installed lando (brew install --cask lando)
 - Installed global composer (brew install composer)
 - Installed php 8.1 on you local machine (brew install php@8.1)
 

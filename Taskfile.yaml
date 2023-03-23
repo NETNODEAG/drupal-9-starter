@@ -68,6 +68,11 @@ tasks:
     cmds:
       - sudo ./nn/docker-prod/deploy.sh
 
+  nn-docker-prod-first-install:
+    desc: Build container and install drupal on the site, drush site install, run only once!
+    cmds:
+      - sudo ./nn/docker-prod/first_install.sh
+
   nn-docker-prod-bash:
     desc: Opens a bash shell in the Drupal Docker container
     cmds:

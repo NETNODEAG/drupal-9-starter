@@ -11,6 +11,11 @@ tasks:
     cmds:
       - ./nn/lando/nn_start.sh
 
+  nn-lando-checks:
+    desc: Run checks phpcs, phpstan on custom modules
+    cmds:
+      - ./nn/lando/nn_checks.sh
+      
   nn-lando-build-frontend:
     desc: Builds the frontend assets
     cmds:

@@ -30,7 +30,12 @@
         "drush/drush": "^11.4"
     },
     "require-dev": {
-        "drupal/core-dev": "^10.0"
+        "drupal/core-dev": "^10.0",
+        "mglaman/phpstan-drupal": "^1.1",
+        "phpstan/extension-installer": "^1.2",
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-deprecation-rules": "^1.1",
+        "drupal/coder": "^8.3"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -49,19 +54,6 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpstan/extension-installer": true
         }
-    },
-    "scripts": {
-        "nn-lando-init": "./nn/lando/nn_init.sh",
-        "nn-lando-build-frontend": "./nn/lando/nn_build_frontend.sh",
-        "nn-lando-sync-db-prod": "./nn/lando/nn_sync_db_prod.sh",
-        "nn-lando-maintenance": "./nn/lando/nn_maintenance.sh",
-        "nn-open": "./nn/lando/nn_open.sh",
-        "nn-open-bitbucket": "open https://bitbucket.org/NETNODEAG/example.ch",
-        "nn-ssh-prod": "ssh netnode@prod.example.ch.netnode.cloud",
-        "nn-demo-install": "./nn/demo/nn_demo_install.sh",
-        "nn-demo-serve": "./nn/demo/nn_demo_serve.sh",
-        "nn-docker-sync-db-prod": "docker compose exec drupal sh -c 'drush sql:sync @cloud.prod @self'",
-        "nn-docker-bash": "docker compose exec -it drupal bash"
     },
     "extra": {
         "drupal-scaffold": {

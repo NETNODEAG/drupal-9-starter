@@ -28,11 +28,11 @@ php core/scripts/drupal generate-theme custom
 ## 1. Create git repo
 - Create repo https://bitbucket.org/NETNODEAG/workspace/create/repository
 - On your local codebase run:
-- > git init
-- > git remote add origin git@bitbucket.org:NETNODEAG/change-to-your-git-repo.git
-- > git add .
-- > git commit -am "inital commit"
-- > git push -u origin master
+> git init
+> git remote add origin git@bitbucket.org:NETNODEAG/change-to-your-git-repo.git
+> git add .
+> git commit -am "inital commit"
+> git push -u origin master
 - edit ./nn/docker-prod/settings.docker.php (set allowed trusted host "'^.+\.docker2\.netnode\.cloud$'")
 ## Setup prod environment on docker host
 - Make sure git repo can be accessed from docker host (Example: https://bitbucket.org/NETNODEAG/example.ch.netnode.cloud/admin/access-keys/)
@@ -41,11 +41,9 @@ php core/scripts/drupal generate-theme custom
 - Inside repo folder
 - > cp .env.example .env
 - > vi .env # edit whatever you want
-- > task nn-docker-prod-deploy (it stops at drush cim which is ok, site is not yet installed, see next step)
-- Site should now be accessible with your define hostname in .env
-- Install site (you may need to set permissions correctly chmod -R 777 web/sites/default/files and chmod -R 777 web/sites/default/settings.php)
-- Check HOSTNAME/admin/reports/status
-- > chmod -R 644 web/sites/default/settings.php
+- > task nn-docker-prod-first-install 
+- Login to the site and check /admin/reports/status
+
 ## Local codebase
 - Define correct prod host drush/sites/cloud.site.yml
 - 

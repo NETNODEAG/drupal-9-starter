@@ -1,0 +1,17 @@
+# Use this file like a .env file.
+# This file is used in taskfile.yaml and other scripts for automation
+
+# Docker production environment
+DOCKER_PROD_IP=0.0.0.0
+DOCKER_PROD_HOST=docker1.netnode.cloud
+DOCKER_PROD_USER=netnode
+DOCKER_PROD_DOCKER_PATH=/root/domain.ch
+
+# Docker stage environment
+DOCKER_STAGE_IP=0.0.0.0
+DOCKER_STAGE_HOST=docker2.netnode.cloud
+DOCKER_STAGE_USER=netnode
+DOCKER_STAGE_DOCKER_PATH=/root/domain.ch
+
+# Other configs
+BITBUCKET_URL=https://bitbucket.org/NETNODEAG/domain.ch

@@ -1,9 +1,12 @@
 # Conventions / Best practices
+
+[TOC]
 ## check_standard.sh
 
+####Context:
 check_standard.sh is a simple bash script, that checks if a given codebase has the files we agreed on.
 
-**Convention:**
+#### Convention:
 - Run the check standard command, when standardizing projects
 
 ```
@@ -13,6 +16,7 @@ check_standard.sh is a simple bash script, that checks if a given codebase has t
 
 ## Taskfile.yaml
 
+#### Context:
 Taskfile.yaml is use to give developers a common "interface" to command line scripts. We assume the Taskfile.yaml helps to:
 
 - work with infrastructure, like
@@ -29,13 +33,14 @@ Taskfile.yaml is use to give developers a common "interface" to command line scr
     - open bitbucket, jira, architecture document
 
 
-**Convention:**
+####Convention:
 - Configure Taskfile.yaml!
 - Make sure it's up to date.
 - You can make up your own task commands
 
 ## ./nn folder
 
+#### Context:
 ./nn folder includes several folders which represent "environments". Currently we supper:
 
 - **demo** (Folder for super quick installation using php webserver)
@@ -47,15 +52,18 @@ Taskfile.yaml is use to give developers a common "interface" to command line scr
 - **any other** (any environment we need to support)
 
 
-**Convention:**
+#### Convention:
 - Delete folders which are not in use (e.g. delete prod folder if no vps setup)
 - Inside a environment you are free to change and add files according to project needs
 
 ## Docker
 
+#### Context:
 TODO
 
 ## Optinionanted Drupal module installers
+
+#### Context:
 
 The idea here is to provide opinionated one time installer scripts. The scripts basically install the modules and config. As said, it's a one time installer, which means you run it ideally just after barebone drupal installation. After that, it's part of the drupal code base config.
 
@@ -64,7 +72,7 @@ The idea here is to provide opinionated one time installer scripts. The scripts 
 > ./2_opinionated_config.sh
 ```
 
-**Convention:**
+#### Convention:
 - "0_netnode_start_config.sh" includes our minimal standard for new projects
 - Add your own "xyz_opinionated_modules.sh" so we can build feature rich "one time installers"
 

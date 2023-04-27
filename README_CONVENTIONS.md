@@ -1,6 +1,5 @@
 # Conventions / Best practices
 
-[TOC]
 ## check_standard.sh
 
 ####Context:

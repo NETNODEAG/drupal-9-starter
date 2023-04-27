@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 # Define the array of files and folders to check
 FILES=("./nn" "./bitbucket-pipelines.yml" "./docker-compose.yml" "./Dockerfile" 
 "./Taskfile.yaml" "./phpstan.neon" "./README.md" "./drush/sites/cloud.site.yml"
-"./.env.example" "./.gitignore" "./.lando.yml" "./composer.json")
+"./.env.example" "./.gitignore" "./.lando.yml" "./composer.json" "./.infrastructure")
 
 # Loop over the array and check each file/folder
 for f in "${FILES[@]}"; do

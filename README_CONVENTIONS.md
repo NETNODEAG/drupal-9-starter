@@ -2,7 +2,7 @@
 
 ## check_standard.sh
 
-####Context:
+#### Context:
 check_standard.sh is a simple bash script, that checks if a given codebase has the files we agreed on.
 
 #### Convention:
@@ -32,7 +32,7 @@ Taskfile.yaml is use to give developers a common "interface" to command line scr
     - open bitbucket, jira, architecture document
 
 
-####Convention:
+#### Convention:
 - Configure Taskfile.yaml!
 - Make sure it's up to date.
 - You can make up your own task commands

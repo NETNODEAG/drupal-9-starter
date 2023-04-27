@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ${APP_NAME}-database
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_DATABASE=${DB_DATABASE}
+    restart: always
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql:rw,delegated
+
+  drupal:
+    build: .
+    container_name: ${APP_NAME}-drupal
+    #ports:
+    #  - 8083:80
+    volumes:
+      # copy local keys to docker image so docker container can access remote servers
+      - ~/.ssh:/root/.ssh:ro
+      - ./:/var/www
+      - ./nn/docker-prod/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./nn/docker-prod/php.ini:/usr/local/etc/php/php.ini
+    restart: always
+    labels:
+      # Frontend
+      - "traefik.enable=true"
+      - "traefik.http.routers.${APP_NAME}-drupal.rule=Host(`${HOSTNAME}`) || Host(`live.domain.ch`)"
+      #- "traefik.http.routers.${APP_NAME}-drupal.entryPoints=websecure"
+      - "traefik.http.services.${APP_NAME}-drupal.loadbalancer.server.port=80"
+      - "traefik.http.routers.${APP_NAME}-drupal.tls=true"
+      - "traefik.http.routers.${APP_NAME}-drupal.tls.certresolver=leresolver"
+      - "traefik.http.routers.${APP_NAME}-drupal.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=netnode:$$apr1$$auekidRk$$VwltF9XdS4OPufteMwuCV1" # netnode/T3stdom@in
+    env_file:
+      - .env
+    links:
+      - mysql
+    networks:
+      - default
+      - proxy
+
+
+networks:
+  proxy:
+    external: true
+    name: proxy
+

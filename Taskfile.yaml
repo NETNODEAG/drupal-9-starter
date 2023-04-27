@@ -31,16 +31,6 @@ tasks:
     cmds:
       - ./nn/lando/nn_maintenance.sh
 
-  nn-lando-open:
-    desc: Opens the site in the default browser
-    cmds:
-      - ./nn/lando/nn_open.sh
-
-  nn-open-bitbucket:
-    desc: Opens the Bitbucket repository in the default browser
-    cmds:
-      - open https://bitbucket.org/NETNODEAG/example.ch
-
   nn-ssh-prod:
     desc: SSH into the production server
     cmds:
@@ -83,3 +73,8 @@ tasks:
     cmds:
       - docker compose exec -it drupal bash
     interactive: true
+
+  nn-open-bitbucket:
+    desc: Opens the Bitbucket repository in the default browser
+    cmds:
+      - open https://bitbucket.org/NETNODEAG/example.ch

@@ -28,7 +28,7 @@ ln ./nn/docker-prod/settings.docker.php ./web/sites/default/settings.php
 
 ln -f ./nn/docker-prod/.htaccess ./web/.htaccess
 
-docker compose up -d --build
+docker compose -f docker-compose.prod.yml up -d --build
 
 
 

@@ -22,7 +22,7 @@ services:
       # copy local keys to docker image so docker container can access remote servers
       - ~/.ssh:/root/.ssh:ro
       - ./:/var/www
-      - ./nn/docker/000-default.conf:/etc/apache2/sites-available/000-default.conf:ro
+      - ./nn/docker/000-default.conf:/etc/apache2/sites-available/000-default.conf
       - ./nn/docker/php.ini:/usr/local/etc/php/php.ini
     restart: always
     labels:

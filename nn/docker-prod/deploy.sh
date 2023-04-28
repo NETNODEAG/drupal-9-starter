@@ -80,6 +80,8 @@ echo "Build Drupal theme –> DONE" | toilet -f term -F border --meta
 #find ./docroot/sites/default -name "*services.yml" -exec chmod 644 {} \;
 docker compose exec drupal sh -c 'drush cr'
 
+docker compose exec drupal sh -c 'crontab nn/docker-prod/crontab'
+
 
 echo "DEPLOYMENT FINISHED" | toilet --meta --filter border -t
 

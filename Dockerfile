@@ -1,7 +1,7 @@
 FROM drupal:10
 
 RUN apt update
-RUN apt install unzip git vim ssh rsync mariadb-client openssh-client -y
+RUN apt install cron unzip git vim ssh rsync mariadb-client openssh-client -y
 
 # Add Drush Launcher.
 RUN curl -OL https://github.com/drush-ops/drush-launcher/releases/download/0.10.1/drush.phar \

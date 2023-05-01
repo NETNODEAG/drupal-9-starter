@@ -6,6 +6,7 @@ tasks:
     cmds:
       - task -l
 
+  # "Local development helpers"
   nn-lando-start:
     desc: Start coding - composer install, sync db, start lando
     cmds:
@@ -31,22 +32,36 @@ tasks:
     cmds:
       - ./nn/lando/nn_maintenance.sh
 
+  # "SSH into"
   nn-ssh-prod:
     desc: SSH into the production server
+    aliases: [prod]
     cmds:
       - ssh netnode@prod.example.ch.netnode.cloud
     interactive: true
 
-  nn-demo-install:
-    desc: Installs the Drupal demo using PHP server
+  nn-ssh-prod-root:
+    desc: SSH into the production server
+    aliases: [prod-root]
     cmds:
-      - ./nn/demo/nn_demo_install.sh
+      - ssh root@prod.example.ch.netnode.cloud
+    interactive: true
 
-  nn-demo-serve:
-    desc: Serves the Drupal demo using PHP server
+  nn-ssh-stage:
+    desc: SSH into the stage server
+    aliases: [stage]
     cmds:
-      - ./nn/demo/nn_demo_serve.sh
+      - ssh netnode@stage.example.ch.netnode.cloud
+    interactive: true
 
+  nn-ssh-stage-root:
+    desc: SSH into the stage server
+    aliases: [stage-root]
+    cmds:
+      - ssh root@stage.example.ch.netnode.cloud
+    interactive: true
+
+  # Docker commands (usually used on servers)
   nn-docker-sync-db-prod:
     desc: Syncs the local database with the production database using Docker
     cmds:
@@ -68,13 +83,35 @@ tasks:
     cmds:
       - sudo ./nn/docker-prod/first_install.sh
 
-  nn-docker-prod-bash:
-    desc: Opens a bash shell in the Drupal Docker container
+  # "Open" stuff for easy access
+  open-bitbucket:
+    desc: Opens Bitbucket repository in browser
+    aliases: [bit]
     cmds:
-      - docker compose exec -it drupal bash
-    interactive: true
+      - open https://bitbucket.org/NETNODEAG/domain.ch
 
-  nn-open-bitbucket:
-    desc: Opens the Bitbucket repository in the default browser
+  open-jira:
+    desc: Opens the Jira in browser
+    aliases: [jira]
     cmds:
-      - open https://bitbucket.org/NETNODEAG/example.ch
+      - open https://netnode.atlassian.net/jira/software/c/projects/PROJECT_XYZ
+
+  open-monitoring:
+    desc: Opens monitoring websites (zabbix, cloudflare, hcloud)
+    aliases: [monitor]
+    cmds:
+      - open (zabbix link)
+      - open (cloudflare link)
+      - open (hcloud)
+      - open (other monitoring tool)
+
+  # Demo (delete if not a throw away demo)
+  nn-demo-install:
+    desc: Installs the Drupal demo using PHP server
+    cmds:
+      - ./nn/demo/nn_demo_install.sh
+
+  nn-demo-serve:
+    desc: Serves the Drupal demo using PHP server
+    cmds:
+      - ./nn/demo/nn_demo_serve.sh

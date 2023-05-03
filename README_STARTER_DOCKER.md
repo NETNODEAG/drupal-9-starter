@@ -35,8 +35,9 @@ The following steps explain how you can create a new drupal codebase using nn-dr
 - > task nn-docker-prod-first-install 
 - Login to the site and check /admin/reports/status
 
-## 4. Setup drush aliases and .infrastructure
+## 4. Setup pipelines and start local development
 
+- Edit lando.yaml and change name
 - Start lando (no DB synced yet)
 > lando start
 - Sync DB from docker host

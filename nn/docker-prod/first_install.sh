@@ -7,7 +7,7 @@ else
   exit 1
 fi
 
-docker compose up -d --build
+docker compose -f docker-compose.prod.yml up -d --build
 docker compose exec drupal sh -c 'composer install --no-dev --no-interaction'
 
 rm ./web/sites/default/settings.php || true

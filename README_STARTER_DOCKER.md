@@ -20,12 +20,18 @@ The following steps explain how you can create a new drupal codebase using nn-dr
 > git push
 
 ## 3. Setup prod environment on docker host
-- Make sure git repo can be accessed from docker host (Example: https://bitbucket.org/NETNODEAG/example.ch/admin/access-keys/)
+- Get ssh pub key from docker host and add it to the git repo
+> task nn-ssh-prod-root
+> cat .ssh/id_rsa.pub
+- Copy the key to (Example: https://bitbucket.org/NETNODEAG/example.ch/admin/access-keys/). 
 - Login to the project docker host 
-- git clone git@bitbucket.org:NETNODEAG/change-to-your-git-repo.git
+> task nn-ssh-prod-root
+> git clone git@bitbucket.org:NETNODEAG/change-to-your-git-repo.git
 - Inside repo folder
 - > cp .env.example .env
 - > vi .env # edit whatever you want
+- use the following to generate passwords 
+- > date |md5 | head -c24; echo
 - > task nn-docker-prod-first-install 
 - Login to the site and check /admin/reports/status
 

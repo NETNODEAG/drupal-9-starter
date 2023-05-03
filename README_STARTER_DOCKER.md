@@ -11,13 +11,16 @@ The following steps explain how you can create a new drupal codebase using nn-dr
 > git init
 > git remote add origin git@bitbucket.org:NETNODEAG/change-to-your-git-repo.git
 > git add .
-- edit ./nn/docker-prod/settings.docker.php (set allowed trusted host "'^.+\.docker2\.netnode\.cloud$'")
 > git commit -am "inital commit"
 > git push -u origin master
-
+- You may need to edit ./nn/docker-prod/settings.docker.php (set allowed trusted host to something like: "'^.+\.docker2\.netnode\.cloud$'")
+- edit drush/sites/cloud.site.yml
+- edit .infrastructure 
+> git commit -am "Adds infrastructure info"
+> git push
 
 ## 3. Setup prod environment on docker host
-- Make sure git repo can be accessed from docker host (Example: https://bitbucket.org/NETNODEAG/example.ch.netnode.cloud/admin/access-keys/)
+- Make sure git repo can be accessed from docker host (Example: https://bitbucket.org/NETNODEAG/example.ch/admin/access-keys/)
 - Login to the project docker host 
 - git clone git@bitbucket.org:NETNODEAG/change-to-your-git-repo.git
 - Inside repo folder
@@ -27,8 +30,7 @@ The following steps explain how you can create a new drupal codebase using nn-dr
 - Login to the site and check /admin/reports/status
 
 ## 4. Setup drush aliases and .infrastructure
-- edit drush/sites/cloud.site.yml
-- edit .infrastructure
+
 - Start lando (no DB synced yet)
 > lando start
 - Sync DB from docker host

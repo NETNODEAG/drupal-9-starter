@@ -109,7 +109,7 @@
                 ]
             },
             "pre-commit": [
-                "nn/lando/nn_phpcs_staged.sh"
+                "lando ssh -c 'nn/lando/nn_phpcs_staged.sh'"
             ]
         }
     }

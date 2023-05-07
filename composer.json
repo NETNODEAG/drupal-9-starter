@@ -30,12 +30,13 @@
         "drush/drush": "^11.4"
     },
     "require-dev": {
+        "brainmaestro/composer-git-hooks": "^3.0@alpha",
+        "drupal/coder": "^8.3",
         "drupal/core-dev": "^10",
         "mglaman/phpstan-drupal": "^1.1",
         "phpstan/extension-installer": "^1.2",
         "phpstan/phpstan": "^1.10",
-        "phpstan/phpstan-deprecation-rules": "^1.1",
-        "drupal/coder": "^8.3"
+        "phpstan/phpstan-deprecation-rules": "^1.1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -54,6 +55,10 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "phpstan/extension-installer": true
         }
+    },
+    "scripts": {
+        "post-install-cmd": "cghooks add --ignore-lock",
+        "post-update-cmd": "cghooks update"
     },
     "extra": {
         "drupal-scaffold": {
@@ -95,6 +100,16 @@
                 "      https://www.drupal.org/getting-involved",
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
+            ]
+        },
+        "hooks": {
+            "config": {
+                "stop-on-failure": [
+                    "pre-commit"
+                ]
+            },
+            "pre-commit": [
+                "lando ssh -c 'nn/lando/nn_phpcs_staged.sh'"
             ]
         }
     }

@@ -27,7 +27,7 @@ tasks:
   nn-lando-sync-db-prod:
     desc: Syncs the local database with the production database
     cmds:
-      - ./nn/lando/nn_sync_db_prod.sh
+      - ./nn/lando/nn_sync_db_prod_docker.sh
 
   nn-lando-maintenance:
     desc: Puts the site into maintenance mode

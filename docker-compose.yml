@@ -3,6 +3,7 @@ version: '3'
 services:
   mysql:
     image: mariadb:latest
+    #image: mysql:8
     container_name: ${APP_NAME}-database
     environment:
       - MYSQL_ROOT_PASSWORD=root
@@ -12,6 +13,7 @@ services:
     restart: always
     volumes:
       - ./volumes/mariadb:/var/lib/mysql:rw,delegated
+      #- ./volumes/mysql:/var/lib/mysql:rw,delegated
 
   drupal:
     build: .

@@ -22,7 +22,7 @@ docker compose exec drupal sh -c 'drush si standard --site-name=$HOSTNAME --uri=
 
 chmod 644 web/sites/default/settings.php
 
-echo "Visit $HOSTNAME"
+echo "Visit https://$HOSTNAME"
 echo "Infos:"
 echo "- you may need to wait 15 seconds for traefik to setup https"
 echo "- you may want to change nadmin password and save to 1password"

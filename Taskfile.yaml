@@ -39,28 +39,28 @@ tasks:
     desc: SSH into the production server
     aliases: [prod]
     cmds:
-      - ssh -t $DOCKER_PROD_USER@$DOCKER_PROD_HOST "cd $DOCKER_PROD_DOCKER_PATH; exec \$SHELL -l"
+      - ssh -tA $DOCKER_PROD_USER@$DOCKER_PROD_HOST "cd $DOCKER_PROD_DOCKER_PATH; exec \$SHELL -l"
     interactive: true
 
   nn-ssh-prod-root:
     desc: SSH into the production server
     aliases: [prod-root]
     cmds:
-      - ssh -t root@$DOCKER_PROD_HOST "cd $DOCKER_PROD_DOCKER_PATH; exec \$SHELL -l"
+      - ssh -tA root@$DOCKER_PROD_HOST "cd $DOCKER_PROD_DOCKER_PATH; exec \$SHELL -l"
     interactive: true
 
   nn-ssh-stage:
     desc: SSH into the stage server
     aliases: [stage]
     cmds:
-      - ssh -t $DOCKER_STAGE_USER@$DOCKER_STAGE_HOST "cd $DOCKER_STAGE_DOCKER_PATH; exec \$SHELL -l"
+      - ssh -tA $DOCKER_STAGE_USER@$DOCKER_STAGE_HOST "cd $DOCKER_STAGE_DOCKER_PATH; exec \$SHELL -l"
     interactive: true
 
   nn-ssh-stage-root:
     desc: SSH into the stage server
     aliases: [stage-root]
     cmds:
-      - ssh -t root@$DOCKER_STAGE_HOST "cd $DOCKER_STAGE_DOCKER_PATH; exec \$SHELL -l"
+      - ssh -tA root@$DOCKER_STAGE_HOST "cd $DOCKER_STAGE_DOCKER_PATH; exec \$SHELL -l"
     interactive: true
 
   # Docker commands (usually used on servers)
@@ -90,13 +90,13 @@ tasks:
     desc: Opens Bitbucket repository in browser
     aliases: [bit]
     cmds:
-      - open https://bitbucket.org/NETNODEAG/domain.ch
+      - open $BITBUCKET_URL
 
   open-jira:
     desc: Opens the Jira in browser
     aliases: [jira]
     cmds:
-      - open https://netnode.atlassian.net/jira/software/c/projects/PROJECT_XYZ
+      - open $JIRA_URL
 
   open-monitoring:
     desc: Opens monitoring websites (zabbix, cloudflare, hcloud)

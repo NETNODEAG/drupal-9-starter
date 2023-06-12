@@ -57,8 +57,8 @@
         }
     },
     "scripts": {
-        "post-install-cmd": "cghooks add --ignore-lock",
-        "post-update-cmd": "cghooks update"
+        "post-install-cmd": "[ $COMPOSER_DEV_MODE -eq 0 ] || cghooks add --ignore-lock",
+        "post-update-cmd": "[ $COMPOSER_DEV_MODE -eq 0 ] || cghooks update"
     },
     "extra": {
         "drupal-scaffold": {

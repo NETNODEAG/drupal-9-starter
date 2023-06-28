@@ -2,13 +2,13 @@
 name: nn-drupal-starter.ch
 
 # Use the recipe appropriate for your application.
-recipe: drupal9
+recipe: drupal10
 
 # Configure the D9 recipe
 config:
 
   # Match PHP version on the production hosting.
-  php: '8.1'
+  php: '8.2'
 
   # Optionally activate xdebug
   #

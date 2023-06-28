@@ -5,7 +5,7 @@ php ./nn/lando/check_requirements.php
 composer self-update --2
 
 # create .env file
-cp .env.example .env
+cp .env.lando .env
 
 # run composer
 composer install

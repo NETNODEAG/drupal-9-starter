@@ -57,7 +57,9 @@ $databases['default']['default'] = array (
   'port' => $_ENV['DB_PORT'],
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
+
 
 /**
  * Reroute email settings

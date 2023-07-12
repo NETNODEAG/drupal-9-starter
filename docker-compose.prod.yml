@@ -27,15 +27,34 @@ services:
       - ./nn/docker-prod/php.ini:/usr/local/etc/php/php.ini
     restart: always
     labels:
-      # Frontend
+      ## Traefik
       - "traefik.enable=true"
-      - "traefik.http.routers.${APP_NAME}-drupal.rule=Host(`${HOSTNAME}`) || Host(`live.domain.ch`)"
+
+      # Set Hosts
+      - "traefik.http.routers.${APP_NAME}-drupal.rule=Host(`${HOSTNAME}`)"
+      # Example with multiple hosts
+      # - "traefik.http.routers.${APP_NAME}-drupal.rule=Host(`${HOSTNAME}`) || Host(`live.domain.ch`)"
+
+      # Other traefik configs
       #- "traefik.http.routers.${APP_NAME}-drupal.entryPoints=websecure"
       - "traefik.http.services.${APP_NAME}-drupal.loadbalancer.server.port=80"
       - "traefik.http.routers.${APP_NAME}-drupal.tls=true"
       - "traefik.http.routers.${APP_NAME}-drupal.tls.certresolver=leresolver"
-      - "traefik.http.routers.${APP_NAME}-drupal.middlewares=auth"
-      - "traefik.http.middlewares.auth.basicauth.users=netnode:$$apr1$$auekidRk$$VwltF9XdS4OPufteMwuCV1" # netnode/T3stdom@in
+
+      ## Configure redirects (example! Change according to your needs)
+      #- "traefik.http.routers.${APP_NAME}-drupal.middlewares=nn-${APP_NAME}-redirector-1@docker,nn-${APP_NAME}-redirector-2@docker"
+      # Redirect www.otherdomain.ch -> www.domain.ch
+      #- "traefik.http.middlewares.nn-${APP_NAME}-redirector-1.redirectregex.regex=^(https://)(www\\.otherdomain\\.ch)(/.*)?"
+      #- "traefik.http.middlewares.nn-${APP_NAME}-redirector-1.redirectregex.replacement=https://www.domain.ch$${3}"
+      # Redirect otherdomain.ch -> www.domain.ch
+      #- "traefik.http.middlewares.nn-${APP_NAME}-redirector-2.redirectregex.regex=^(https://)(.otherdomain\\.ch)(/.*)?"
+      #- "traefik.http.middlewares.nn-${APP_NAME}-redirector-2.redirectregex.replacement=https://www.theater-basel.ch$${3}"
+ 
+
+      ## Configure Basic Auth
+      - "traefik.http.routers.${APP_NAME}-drupal.middlewares=nn-${APP_NAME}-auth"
+      - "traefik.http.middlewares.nn-${APP_NAME}-auth.basicauth.users=netnode:$$apr1$$auekidRk$$VwltF9XdS4OPufteMwuCV1" # netnode/T3stdom@in
+      
     env_file:
       - .env
     links:

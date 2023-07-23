@@ -71,14 +71,14 @@ lando drush en paragraphs_ee -y
 
 # Paragraphs Edit - adds contextual links to paragraphs (edit, delete and clone)
 lando composer require drupal/paragraphs_edit
-lando drush en en paragraphs_edit -y
+lando drush en paragraphs_edit -y
 
 # Views
 # ------------------------------------------------------
 
 # Views Bulk Operations - perform bulk operations on views
 lando composer require drupal/views_bulk_operations
-lando drush en drupal/views_bulk_operations -y
+lando drush en views_bulk_operations -y
 
 # Search
 # ------------------------------------------------------
@@ -147,7 +147,7 @@ lando drush en nocurrent_pass -y
 
 # Shield - protect your site with basic auth
 lando composer require drupal/shield --no-interaction
-lando drush drush en shield -y
+lando drush en shield -y
 
 # Devel - development module
 lando composer require drupal/devel

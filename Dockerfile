@@ -1,7 +1,12 @@
 FROM drupal:10
 
 RUN apt-get update -y
-RUN apt-get install -y cron unzip git vim ssh rsync mariadb-client openssh-client
+
+RUN apt-get install cron unzip git vim ssh rsync mariadb-client openssh-client libmagickwand-dev libxml2-dev -y
+
+RUN pecl install imagick
+RUN docker-php-ext-enable imagick
+RUN docker-php-ext-install soap
 
 # Add Drush Launcher.
 RUN curl -OL https://github.com/drush-ops/drush-launcher/releases/download/0.10.1/drush.phar \

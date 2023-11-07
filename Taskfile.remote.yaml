@@ -1,0 +1,9 @@
+version: '3'
+
+tasks:
+  ssh:
+    desc: SSH into the production server
+    aliases: [ssh]
+    cmds:
+      - ssh -t root@$DOCKER_PROD_HOST "cd $DOCKER_PROD_DOCKER_PATH; exec \$SHELL -l"
+    interactive: true

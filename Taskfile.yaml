@@ -2,6 +2,9 @@ version: '3'
 
 dotenv: ['.env', '.infrastructure']
 
+includes:
+  nn: https://raw.githubusercontent.com/my-org/my-repo/main/Taskfile.yml
+
 tasks:
   default:
     desc: Lists all available tasks

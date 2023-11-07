@@ -1,0 +1,28 @@
+---
+version: '3'
+
+# General commands to run on docker instances
+
+tasks:
+  bash:
+    desc: Opens a bash shell in the Drupal container
+    cmds:
+      - docker compose exec -it drupal bash
+    interactive: true
+
+  bash-db:
+    desc: Opens a bash shell in the MySQL/MariaDB container
+    cmds:
+      - docker compose exec -it mysql bash
+    interactive: true
+
+  lazydocker:
+    desc: Start lazydocker
+    cmds:
+      - docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v /yourpath:/.config/jesseduffield/lazydocker lazyteam/lazydocker
+    interactive: true
+
+  stats:
+    desc: Stats about application
+    cmds:
+      -  ./nn/helpers/docker-general/stats.sh

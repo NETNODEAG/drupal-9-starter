@@ -1,0 +1,10 @@
+---
+version: '3'
+
+# Commands to run on docker stage instances only
+
+tasks:
+  nn-docker-sync-db-prod-to-stage:
+    desc: Syncs the db from production (VPS) to stage (Docker)
+    cmds:
+      - docker compose exec drupal sh -c 'drush sql:sync --skip-tables-key=cache,cache_*,search_index,watchdog @cloud.prod @self'

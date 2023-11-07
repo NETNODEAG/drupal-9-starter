@@ -1,0 +1,15 @@
+---
+version: '3'
+
+# Commands to run on docker prod instances only
+
+tasks:
+  deploy:
+    desc: Build container and install codebase on production
+    cmds:
+      - ./nn/docker-prod/deploy.sh
+
+  db-backup:
+    desc: Dumps the db to ./volumes/dbbackups/*
+    cmds:
+      - ./nn/docker-prod/dbbackup.sh

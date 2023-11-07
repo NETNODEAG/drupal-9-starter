@@ -7,6 +7,7 @@ RUN apt-get install cron unzip git vim ssh rsync mariadb-client openssh-client l
 RUN pecl install imagick
 RUN docker-php-ext-enable imagick
 RUN docker-php-ext-install soap
+RUN	apt-get clean
 
 # Add Drush Launcher.
 RUN curl -OL https://github.com/drush-ops/drush-launcher/releases/download/0.10.1/drush.phar \
@@ -15,5 +16,6 @@ RUN curl -OL https://github.com/drush-ops/drush-launcher/releases/download/0.10.
 
 RUN mkdir -p /root/.ssh
 RUN chown -R root:root /root/.ssh
+
 
 WORKDIR /var/www

@@ -15,3 +15,4 @@ DOCKER_STAGE_DOCKER_PATH=/root/domain.ch
 
 # Other configs
 BITBUCKET_URL=https://bitbucket.org/NETNODEAG/domain.ch
+JIRA_URL=https://netnode.atlassian.net/jira/software/c/projects/PROJECT_XYZ

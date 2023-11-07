@@ -11,6 +11,11 @@ services:
       - MYSQL_USER=${DB_USERNAME}
       - MYSQL_DATABASE=${DB_DATABASE}
     restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "100m"
+        max-file: "1"
     volumes:
       - ./volumes/mariadb:/var/lib/mysql:rw,delegated
       #- ./volumes/mysql:/var/lib/mysql:rw,delegated
@@ -26,6 +31,11 @@ services:
       - ./nn/docker-prod/000-default.conf:/etc/apache2/sites-available/000-default.conf
       - ./nn/docker-prod/php.ini:/usr/local/etc/php/php.ini
     restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "100m"
+        max-file: "1"
     labels:
       ## Traefik
       - "traefik.enable=true"

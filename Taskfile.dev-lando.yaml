@@ -1,0 +1,58 @@
+---
+version: '3'
+
+# Commands to run on docker prod instances only
+
+tasks:
+ # Lando
+  # ------------------------------
+  deploy:
+    desc: Starts/Deploys the site locally
+    cmds:
+      - ./nn/lando/deploy.sh
+
+  open-site:
+    desc: Opens the site in the default browser
+    cmds:
+      - open http://d8.zebis.ch.lndo.site
+
+  dev-frontend-theme:
+    desc: Develop Frontend Theme
+    cmds:
+      - ./nn/lando/custom/dev_frontend_theme.sh
+
+  build-frontend-theme:
+    desc: Build Frontend Theme
+    cmds:
+      - ./nn/lando/custom/build_frontend_theme.sh
+
+  build-admin-frontend-theme:
+    desc: Build Admin Frontend Theme
+    cmds:
+      - ./nn/lando/custom/build_admin_theme.sh
+
+  build-lp21-reference:
+    desc: Build LP21 Reference
+    cmds:
+      - ./nn/lando/build_lp21_reference.sh
+
+  build-everything:
+    desc: Build Admin Theme, Frontend Theme and LP21 Reference
+    cmds:
+      - ./nn/lando/custom/build_everything.sh
+
+  devel-enable:
+    desc: Enable Devel module
+    cmds:
+      - lando drush -y en devel
+
+  devel-uninstall:
+    desc: Uninstall Devel module
+    cmds:
+      - lando drush -y pm-uninstall devel
+
+#  nn-lando-checks:
+#    desc: Run checks phpcs, phpstan on custom modules
+#    cmds:
+#      - ./nn/lando/nn_checks.sh
+#

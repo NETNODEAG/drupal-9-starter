@@ -1,0 +1,66 @@
+---
+version: '3'
+
+# General tasks you want to do from a (local) development machine
+
+tasks:
+  # "SSH into stuff"
+  prod:
+    desc: SSH into the production server
+    cmds:
+      - ssh -tA $DOCKER_PROD_USER@$DOCKER_PROD_HOST "cd $DOCKER_PROD_DOCKER_PATH; exec \$SHELL -l"
+    interactive: true
+
+  prod-root:
+    desc: SSH into the production server as root
+    cmds:
+      - ssh -tA root@$DOCKER_PROD_HOST "cd $DOCKER_PROD_DOCKER_PATH; exec \$SHELL -l"
+    interactive: true
+
+  stage:
+    desc: SSH into the stage server
+    cmds:
+      - ssh -tA $DOCKER_STAGE_USER@$DOCKER_STAGE_HOST "cd $DOCKER_STAGE_DOCKER_PATH; exec \$SHELL -l"
+    interactive: true
+
+  stage-root:
+    desc: SSH into the stage server as root
+    cmds:
+      - ssh -tA root@$DOCKER_STAGE_HOST "cd $DOCKER_STAGE_DOCKER_PATH; exec \$SHELL -l"
+    interactive: true
+
+
+  # "Sync DB stuff"
+  db-prod-backup:
+    desc: Trigger a db backup on prod
+    aliases: []
+    cmds:
+      - ./nn/helpers/dev-general/trigger-db-backup-on-prod.sh
+
+  db-prod-download:
+    desc: Download db from prod backup
+    cmds:
+      - ./nn/helpers/dev-general/download-db-from-prod-to-dev.sh
+
+
+  # Open stuff
+  bitbucket:
+    desc: Opens the Bitbucket repository in the default browser
+    aliases: [bit]
+    cmds:
+      - open $BITBUCKET_URL
+  
+  jira:
+    desc: Opens the Jira in browser
+    aliases: [jira]
+    cmds:
+      - open $JIRA_URL
+
+  monitoring:
+    desc: Opens monitoring websites (zabbix, cloudflare, hcloud)
+    aliases: [monitor]
+    cmds:
+      - open (zabbix link)
+      - open (cloudflare link)
+      - open (hcloud)
+      - open (other monitoring tool)

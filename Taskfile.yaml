@@ -3,12 +3,13 @@ version: '3'
 dotenv: ['.env', '.infrastructure']
 
 includes:
-  nn: https://raw.githubusercontent.com/my-org/my-repo/main/Taskfile.yml
+  nn: https://raw.githubusercontent.com/NETNODEAG/nn-drupal-starter/10.0.x/Taskfile.remote.yaml
 
 tasks:
   default:
     desc: Lists all available tasks
     cmds:
+      - export TASK_X_REMOTE_TASKFILES=1
       - task -l
 
   # "Local development helpers"

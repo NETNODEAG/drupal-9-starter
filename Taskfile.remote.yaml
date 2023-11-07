@@ -2,8 +2,15 @@ version: '3'
 
 tasks:
   ssh:
-    desc: SSH into the production server
-    aliases: [ssh]
+    desc: SSH into the specified server environment
     cmds:
-      - ssh -t root@$DOCKER_PROD_HOST "cd $DOCKER_PROD_DOCKER_PATH; exec \$SHELL -l"
+      - |
+        if [ "{{.CLI_ARGS}}" = "dev" ]; then
+          ssh -t root@$DOCKER_DEV_HOST "cd $DOCKER_DEV_DOCKER_PATH; exec \$SHELL -l"
+        elif [ "{{.CLI_ARGS}}" = "prod" ]; then
+          ssh -t root@$DOCKER_PROD_HOST "cd $DOCKER_PROD_DOCKER_PATH; exec \$SHELL -l"
+        else
+          echo "Error: Unknown environment '{{.CLI_ARGS}}'. Use 'dev' or 'prod'."
+          exit 1
+        fi
     interactive: true

@@ -11,6 +11,8 @@ services:
       - MYSQL_USER=${DB_USERNAME}
       - MYSQL_DATABASE=${DB_DATABASE}
     restart: always
+    env_file:
+      - .env
     logging:
       driver: json-file
       options:
